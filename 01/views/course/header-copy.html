@@ -1,0 +1,186 @@
+<div data-ng-controller='HeaderController' data-ng-init="init()" class="page-header">
+    <div class="headerLeft">
+        <div class="headerLogo">
+            <a href="/#!/">
+                <img src='https://playentry.org/img/assets/workspace_header_logo_white.png'>
+            </a>
+            <div ng-if="theme == 'ebs2015'">
+                <img src='https://playentry.org/img/assets/ebs/top_img_x.PNG'>
+                <a href="http://playsw.naver.com/main" target="_blank">
+                    <img src='https://playentry.org/img/assets/top_logo_soft.png'>
+                </a>
+            </div>
+        </div>
+        <!-- <div class="headerDivider"></div> -->
+        <div class="headerName">
+            <input type="text" data-ng-model="shareSet.lecture.title" id="project_name" class="headerProjectName" disabled readonly="readonly"/>
+        </div>
+    </div>
+
+    <div class="headerRight">
+        <div class="headerRightInner">
+            <button class='headerButtonCommon homeworkSubmit' ng-if="isButtonVisible('submitHomework')" ng-click="submitHomework()">
+                {{'Menus.course_submit_homework' | text}}
+            </button>
+            <button class='headerButtonCommon homeworkSubmit' ng-if="isButtonVisible('doneStudy')" ng-click="doneStudy()">
+                {{'Menus.course_done_study' | text}}
+            </button>
+            <button class='headerButtonCommon studyList' ng-if="!isHomework && curriculum && isAuth" ng-click="showList()">
+                {{'Menus.course_show_list' | text}}
+            </button>
+            <div class="headerDivider courseDivider" ></div>
+            <div class="headerReset" ng-if="!teacherMode">
+                <div class="btn-group" uib-dropdown is-open="status.isResetOn">
+                    <a class="headerRestButton btn dropdown-toggle" uib-dropdown-toggle>
+                        <!-- {{'Menus.lecture_header_reset' | text}} -->
+                        <img src="https://playentry.org/img/assets/top_icon_new_b_nor2.png" class="headerResetImg"/>
+                        <span class="drop">
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu ng-hide="teacherMode">
+                        <li>
+                            <a href ng-click="dispatchEntryEvent('resetWorkspace')">
+                                {{'Menus.lecture_header_reset_exec' | text}}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="headerSave" data-ng-if="global.authenticated && !teacherMode">
+                <div class="btn-group" uib-dropdown is-open="status.isSaveOn">
+                    <button class="headerSaveIcon btn dropdown-toggle" uib-dropdown-toggle>{{'Menus.lecture_header_save' | text}}</button>
+                    <ul class="dropdown-menu" uib-dropdown-menu ng-hide="teacherMode">
+                        <li><a href ng-click="dispatchEntryEvent('saveWorkspace')">{{'Menus.lecture_header_save_content' | text}}</a></li>
+                        <li ng-if="shareSet.lecture.studies[shareSet.studyIndex].type != 'maze_static'"><a href ng-click="dispatchEntryEvent('saveAsWorkspace')">{{'Menus.lecture_header_export_project' | text}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class='undoRedoContainer' ng-if="isButtonVisible('undoRedo')">
+                <div class="headerUndo">
+                    <button class="headerUndoIcon" ng-click="dispatchEntryEvent('undo')">{{'Menus.lecture_header_undo' | text}}</button>
+                </div>
+                <div class="headerRedo">
+                    <button class="headerRedoIcon" ng-click="dispatchEntryEvent('redo')">{{'Menus.lecture_header_redo' | text}}</button>
+                </div>
+            </div>
+            <div class="headerDivider courseDivider" ng-if="!teacherMode"></div>
+            <div class="headerAccount" data-ng-if="global.authenticated || teacherMode">
+                <div uib-dropdown is-open="status.isUserInfoOn">
+                    <button uib-dropdown-toggle>
+                        <span class="headerLinkText" ng-if="!teacherMode">{{::global.user.username}} <b class="caret"></b></span>
+                        <span class="headerLinkText" ng-if="teacherMode">{{pOwner.studentName}}</span>
+                    </button>
+                    <ul class="dropdown-menu" uib-dropdown-menu ng-hide="teacherMode">
+                        <li><a href="/{{global.user.username}}">{{'Users.project_list' | text}}</a></li>
+                        <li><a href="/#!/personal">{{'Users.edit_personal' | text}}</a></li>
+                        <li><a href ng-click="signout()">{{'Menus.logout' | text}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="headerAccount" data-ng-if="!global.authenticated">
+                <div class="headerSignin">
+                    <a href class="headerSigninLink" ng-click="showLogin()">
+                        <span class="headerLinkText">{{'Menus.login' | text}}</span>
+                    </a>
+                </div>
+                <div class="headerSignup">
+                    <a href class="headerSigninLink" ng-click="showSignup()">
+                        <span class="headerLinkText">{{'Menus.Join' | text}}</span>
+                    </a>
+                </div>
+            </div>
+            <div class="headerLanguage">
+                <div  uib-dropdown is-open="status.isLangOn">
+                    <button uib-dropdown-toggle>
+                        <span class="headerLinkText">{{global.user.language | text}} <b class="caret"></b></span>
+                    </button>
+                    <ul class="dropdown-menu" uib-dropdown-menu ng-hide="teacherMode">
+                        <li><a href data-ng-click="setLanguage('ko')">{{'ko' | text}}</a></li>
+                        <li><a href data-ng-click="setLanguage('en')">{{'en' | text}}</a></li>
+                        <li><a href data-ng-click="setLanguage('vn')">{{'vn' | text}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="headerReport">
+                <button class="headerReportIcon" ng-click="showPopup('bugReport')">{{'Menus.lecture_header_bugs' | text}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="alertWrapper" id="alertWrapper" >
+        <div class="groupConfirmWrapper" ng-if="alertState" ng-model="alertState">
+            <div class="groupConfirmHeader">
+                <span class="groupConfirmTitle">
+                    {{'Menus.popup_notice' | text}}
+                </span>
+                <span class='groupConfirmCloseButton' ng-click="hideConfirm('alertWrapper')">
+                </span>
+            </div>
+            <div class="groupConfirmContent">
+                <div class="groupConfirmText" ng-bind-html="'Menus.hw_submit_alert' | text | unsafe">
+                </div>
+                <div ng-click="hideConfirm('alertWrapper')" class='popupButton cancel'>
+                    {{'Buttons.cancel' | text}}
+                </div>
+                <div ng-click="showAlert('alertWrapper' ,'alertWrapperConfirm')" class='popupButton ok'>
+                    {{'Buttons.save' | text}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alertWrapper" id="alertWrapperConfirm" >
+        <div class="groupConfirmWrapper" ng-if="alertState" ng-model="alertState">
+            <div class="groupConfirmHeader">
+                <span class="groupConfirmTitle">
+                    {{'Menus.popup_notice' | text}}
+                </span>
+            </div>
+            <div class="groupConfirmContent">
+                <div class="groupConfirmText">
+                    {{'Menus.hw_submit_confirm_alert' | text}}
+                </div>
+                <div ng-click="submitConfirmFinal()" class='popupButton ok'>
+                    {{'Buttons.save' | text}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="courseIndicator" id="courseIndicator" >
+        <span ng-repeat="n in shareSet.studyStatus" ng-class="getCourseIndicatorBadgeClass(n, $index)" ng-click="changeStudyIndex({{$index}})">
+            <span class="courseIndicatorNumber">
+                {{$index + 1}}
+            </span>
+        </span>
+    </div>
+
+    <!--
+        sample indicator
+        <span
+            class="courseIndicatorBadge courseIndicatorComplete"
+        >
+            <span
+                class="courseIndicatorNumber"
+            >
+                2
+            </span>
+        </span>
+        <span
+            class="courseIndicatorBadge courseIndicatorProgress"
+        >
+            <span
+                class="courseIndicatorNumber"
+            >
+                3
+            </span>
+        </span>
+        <span
+            class="courseIndicatorBadge"
+        >
+            <span
+                class="courseIndicatorNumber"
+            >
+                4
+            </span>
+        </span>
+    -->
+</div>

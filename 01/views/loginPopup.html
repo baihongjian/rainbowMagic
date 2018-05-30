@@ -1,0 +1,76 @@
+<div class="loginPopupWrapper" ng-controller='LoginController' ng-init='init()'>
+    <div id='loginPopup' ng-if="isLoginVisible" ng-style="loginPopupStyle">
+        <div class='loginWrapperIH' ng>
+            <div class='loginBoxTitle'>
+                {{'Menus.login' | text}}
+                <span class='loginBoxClose' ng-click='hidePopup("loginPopup", true)'></span>
+            </div>
+            <div class='loginBoxContent'>
+                <form accept-charset="UTF-8" action="/ss" method="post">
+                    <div class="loginBoxFormWrapper">
+                        <span class='loginBoxSpan loginBoxId'>{{'Users.username' | text}}</span>
+                        <input id='name' class='loginBoxInput loginBoxInputId' data-ng-keydown='keydownPrevent($event)'
+                               data-ng-blur="checkUserName()"
+                        />
+                        <div class="loginError">
+                            {{userCheckList.id}}
+                        </div>
+                        <span class='loginBoxSpan loginBoxPassword'>{{'Menus.password' | text}}</span>
+                        <input id='password' class='loginBoxInput loginBoxInputPassword'
+                               data-ng-keydown='keydownPrevent($event)'
+                               type="password" data-ng-enter="signin()"/>
+                        <div class='loginBoxRemember selectDisable'>
+                            <img src="/img/assets/study/list_checkbox_basic.png" class='loginBoxCheckBox' data-ng-if="!remember" data-ng-click="rememberMe()"></img>
+                            <img src="/img/assets/study/list_checkbox.png" class='loginBoxCheckBox' data-ng-if="remember" data-ng-click="rememberMe()"></img>
+                            <span class='loginBoxCheckBox loginBoxCheckBoxChecked' data-ng-if="remember" data-ng-click="rememberMe()"></span>
+                            <span class='loginBoxRememberSpan' data-ng-click="rememberMe()">{{'Menus.auto_login' | text}} </span>
+                            <a href ng-click="closeAndFindPassword('loginPopup')"><span class='loginBoxForgotSpan'>{{'Menus.forgot_password' | text}}</span></a>
+                        </div>
+                        <div class="loginError">
+                            {{userCheckList.pwd}}
+                        </div>
+                        <div class='entryConfirmButton loginBoxConfirm' data-ng-click="signin()">{{'Menus.login' | text}}</div>
+                        <div class= "entryDividerBottomWrapper">
+                            <hr class="entryIndexDivider">
+                            <div class="entryDividerIsNotUser">
+                                {{'Menus.did_not_join' | text}}
+                            </div>
+                            <div class="entryDividerBottomGoJoin" ng-click="goToJoin()">
+                                {{'Menus.go_join' | text}} 〉
+                            </div>
+                        </div>
+                        <div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="emailTermWrapperWrapper" ng-show="emailAuth">
+        <div class="emailTermWrapper">
+            <div class="projectTermTitleWrapper">
+                이메일 인증 안내
+                <span class="projectTermCloseBtn" ng-click="closePopup()">
+                </span>
+            </div>
+            <div class="emailAuthWrapper">
+            </div>
+            <div class="emailAuthDesc">
+                안녕하세요 엔트리입니다. <br>
+                회원정보와 관련하여 중요한 변경 사항이 있어 안내 드립니다.<br>
+                엔트리에서는 자신의 계정에 이메일 주소를 등록할 수 있으나,<br>
+                별도의 인증 절차가 없어 본인이 사용하지 않는 이메일 주소라도 등록할 수 있었습니다.<br>
+                그러나 앞으로는 실제로 사용하는 이메일을 등록할 수 있도록 인증 절차가 추가되었으며,<br>
+                <b>2018년 1월 4일</b> 이후부터 비밀번호 재설정 메일과 같이 중요한<br>
+                이메일은 이메일 주소를 인증한 회원분들께만 발송될 예정입니다.<br><br>
+
+                안전한 엔트리 이용을 위해서<br>
+                <b>내 정보 수정</b>에서 이메일을 인증을 해주세요.<br>
+            </div>
+            <div class="projectTermBtnWrapper">
+                <div class="emailAuthConfirmBtn" ng-click="goToPersonal()">
+                    내 정보 수정 가기 <img src="/img/assets/index/personalBtn.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
