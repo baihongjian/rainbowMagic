@@ -1,0 +1,200 @@
+﻿{
+  "_id": "59018df41f4f9d9b391c59d9",
+  "preview": "done",
+  "repStudy": {
+    "_id": "59016a425a091a18914cd0c9",
+    "type": "maze_static",
+    "lecture": "58febde5ef362fa1ddb67888",
+    "contents": {
+      "mode": "1",
+      "stage": "13"
+    },
+    "__v": 0,
+    "refCount": 10035,
+    "essentialBlocksInfo": {
+      "blocks": []
+    },
+    "entities": [],
+    "injectOption": {
+      "programmingMode": 0
+    },
+    "availableBlocks": [],
+    "updated": "2017-04-25T03:09:25.556Z",
+    "created": "2017-04-25T03:09:25.556Z"
+  },
+  "parent": "59018de87baa939aeae08918",
+  "curriculum": "59018df41f4f9d9b391c59d7",
+  "user": {
+    "_id": "565fdb0d1328dea8087009b5",
+    "username": "entrycontents",
+    "sex": "male",
+    "avatarImage": true
+  },
+  "difficulty": 1,
+  "requiredTime": 1,
+  "isOpen": true,
+  "description": "엔트리봇이 학교까지 갈 수 있도록 미션을 해결해 봅시다.",
+  "title": "计算机思考力'探索者'",
+  "__v": 93200,
+  "shortenUrl": "https://goo.gl/5Effgz",
+  "groups": [],
+  "isForCourse": true,
+  "quiz": false,
+  "studies": [
+    {
+      "_id": "59016a425a091a18914cd0c5",
+      "type": "maze_static",
+      "lecture": "58febde5ef362fa1ddb67888",
+      "contents": {
+        "stage": "1",
+        "mode": "1",
+        "content": [
+          {
+            "type": "intro",
+            "items": [
+              {
+                "content": "欢迎来到'彩虹魔块'世界。<div><br></div><div>你可以试一试，感受魔法编程的乐趣。</div><div><br></div><div>关注微信公众号，获取更多免费资源。</div>",
+                "media": {
+                  "category": "IMAGE",
+                  "content": "img/qrcode.jpg"
+                }
+              }
+
+            ]
+          }
+        ]
+      },
+      "__v": 0,
+      "refCount": 10035,
+      "essentialBlocksInfo": {
+        "blocks": []
+      },
+      "entities": [],
+      "injectOption": {
+        "programmingMode": 0
+      },
+      "availableBlocks": [],
+      "updated": "2017-04-25T03:09:25.555Z",
+      "created": "2017-04-25T03:09:25.555Z"
+    },
+    {
+      "_id": "59016a425a091a18914cd0c6",
+      "type": "maze_static",
+      "lecture": "58febde5ef362fa1ddb67888",
+      "contents": {
+        "mode": "1",
+        "stage": "4"
+      },
+      "__v": 0,
+      "refCount": 10035,
+      "essentialBlocksInfo": {
+        "blocks": []
+      },
+      "entities": [],
+      "injectOption": {
+        "programmingMode": 0
+      },
+      "availableBlocks": [],
+      "updated": "2017-04-25T03:09:25.555Z",
+      "created": "2017-04-25T03:09:25.555Z"
+    },
+    {
+      "_id": "59016a425a091a18914cd0c7",
+      "type": "maze_static",
+      "lecture": "58febde5ef362fa1ddb67888",
+      "contents": {
+        "mode": "1",
+        "stage": "6"
+      },
+      "__v": 0,
+      "refCount": 10035,
+      "essentialBlocksInfo": {
+        "blocks": []
+      },
+      "entities": [],
+      "injectOption": {
+        "programmingMode": 0
+      },
+      "availableBlocks": [],
+      "updated": "2017-04-25T03:09:25.556Z",
+      "created": "2017-04-25T03:09:25.556Z"
+    },
+    {
+      "_id": "59016a425a091a18914cd0c8",
+      "type": "maze_static",
+      "lecture": "58febde5ef362fa1ddb67888",
+      "contents": {
+        "mode": "1",
+        "stage": "11",
+        "content": [
+          {
+            "type": "intro",
+            "items": [
+              {
+                "media": {
+                  "category": "IMAGE",
+                  "content": "img/shuoming4.png"
+                },
+                "content": "在循环魔块中，可以选择循环次数。"
+              }
+            ]
+          }
+        ]
+      },
+      "__v": 0,
+      "refCount": 10035,
+      "essentialBlocksInfo": {
+        "blocks": []
+      },
+      "entities": [],
+      "injectOption": {
+        "programmingMode": 0
+      },
+      "availableBlocks": [],
+      "updated": "2017-04-25T03:09:25.556Z",
+      "created": "2017-04-25T03:09:25.556Z"
+    },
+    {
+      "_id": "59016a425a091a18914cd0c9",
+      "type": "maze_static",
+      "lecture": "58febde5ef362fa1ddb67888",
+      "contents": {
+        "mode": "1",
+        "stage": "13"
+      },
+      "__v": 0,
+      "refCount": 10035,
+      "essentialBlocksInfo": {
+        "blocks": []
+      },
+      "entities": [],
+      "injectOption": {
+        "programmingMode": 0
+      },
+      "availableBlocks": [],
+      "updated": "2017-04-25T03:09:25.556Z",
+      "created": "2017-04-25T03:09:25.556Z"
+    }
+  ],
+  "isForHomework": false,
+  "updated": "2017-04-27T03:49:22.832Z",
+  "studyCnt": 0,
+  "created": "2017-04-25T03:09:25.546Z",
+  "likeCnt": 1,
+  "comment": 72,
+  "like": [],
+  "savedUsers": [],
+  "visit": 1727929,
+  "grade": [
+    "general"
+  ],
+  "subjectList": [],
+  "conceptList": [],
+  "usageList": [
+    "usage_repeat"
+  ],
+  "goals": [
+    "순서대로 블록을 조립하여 미션을 해결할 수 있다.",
+    "'~번 반복하기' 명령을 사용하여 미션을 효율적으로 해결할 수 있다."
+  ]
+}

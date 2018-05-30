@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html ng-app="mean.course">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1024">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta name="keywords" content="Entry Block Coding Programming Education">
+    <meta name="description" content="Learn programming by doing block coding">
+    <title>找书包</title>
+    
+    <link href="/img/icons/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://playentry.org/lib/literallycanvas/lib/css/literallycanvas.css">
+    <meta name="viewport" content="user-scalable=no">
+	<style>
+	body {
+	font-size:16px;
+	font-family: arial,"\5b8b\4f53";
+	}
+	</style>
+</head>
+<body>
+<div data-ng-include="'views/course/header.html'" data-role="navigation" class="workspaceHeader"></div>
+<section class="courseContent">
+    <section id="container" class="courseContainer">
+        <section data-ng-view></section>
+    </section>
+    <div data-ng-include="'views/workspace/bug_report.html'"></div>
+</section>
+
+<div data-ng-include="'views/loginPopup.html'"></div>
+<div data-ng-include="'views/signUpPopup.html'"></div>
+<div data-ng-include="'views/accessTerm.html'"></div>
+
+<!--//访问这个地址
+http://localhost:63342/entry/course.html#!/59018df41f4f9d9b391c59d9-->
+
+<!--Compatible Library-->
+<!--[if lt IE 9]>
+<script src='https://playentry.org/lib/es5-shim/es5-shim.min.js'></script>
+<script src='https://playentry.org/lib/html5shiv/dist/html5shiv.min.js'></script>
+<![endif]-->
+<!--jQuery-->
+<script type="text/javascript" src="https://playentry.org/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+<!--underscore-->
+<script type="text/javascript" src="https://playentry.org/lib/underscore/underscore-min.js"></script>
+<!--AngularJS-->
+<script type="text/javascript" src="https://playentry.org/lib/angular/angular.min.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/angular-cookies/angular-cookies.min.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/angular-resource/angular-resource.min.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/angular-touch/angular-touch.js"></script>
+<!--Angular UI-->
+<script type="text/javascript" src="https://playentry.org/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<!--React JS-->
+<script type="text/javascript" src="https://playentry.org/lib/react/react.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/react/react-dom.js"></script>
+<!--Lang js-->
+<script type="text/javascript" src="js/lang/ko.js"></script>
+<!--Bootstrap JS-->
+<script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- clipboard JS-->
+<script type="text/javascript" src="lib/clipboard/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="lib/entryjs/extern/util/static.js"></script>
+<!--window user js-->
+<script type="text/javascript">
+    window.user = null;
+    Object.defineProperty(window, "user", {
+        writable: false,
+        value: window.user
+    });
+    if (window.user) {
+        Object.defineProperties(window.user, {
+            "_id": {
+                writable: false,
+                value: window.user._id
+            },
+            "role": {
+                writable: false,
+                value: window.user.role
+            }
+        });
+    }
+</script>
+<script type="text/javascript">
+    window.lang = 'zh';
+
+</script>
+<script type="text/javascript">
+    window.platform = {"name": "Windows", "version": "7"};
+
+</script>
+<!--webpack resources-->
+<script type="text/javascript" src="builds/main.js"></script>
+<script type="text/javascript" src="builds/main_script.js"></script>
+
+<!-- lms-->
+<link rel="stylesheet" href="https://playentry.org/lib/entry-lms/dist/assets/app.css">
+<script type="text/javascript" src="lib/entry-lms/dist/assets/app.js"></script>
+<!-- 그림판모듈-->
+<script type="text/javascript" src="https://playentry.org/lib/literallycanvas/lib/js/literallycanvas.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/codemirror/lib/codemirror.js"></script>
+<!--Blockly-->
+<script type="text/javascript" src="https://playentry.org/lib/entryjs/extern/blockly/blockly_compressed.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/entryjs/extern/blockly/msg/js/ko.js"></script>
+<!--CreateJS-->
+<!--CreateJS-->
+<script type="text/javascript" src="https://playentry.org/lib/PreloadJS/lib/preloadjs-0.6.0.min.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/EaselJS/lib/easeljs-0.8.0.min.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/SoundJS/lib/soundjs-0.6.0.min.js"></script>
+<!-- hack: fix createjs Sound bug-->
+<script type="text/javascript">
+    var playFunc = createjs.Sound.play;
+    createjs.Sound.play = function (a, b) {
+        if (b) b.pan = 0.01;
+        else b = {pan: 0.01};
+        return playFunc(a, b);
+    };
+</script>
+<!--CanvasInput-->
+<script type="text/javascript" src="https://playentry.org/lib/entryjs/extern/util/CanvasInput.js"></script>
+<!--Collision library-->
+<script type="text/javascript" src="https://playentry.org/lib/entryjs/extern/util/ndgmr.Collision.js"></script>
+<!--Handle library-->
+<script type="text/javascript" src="https://playentry.org/lib/entryjs/extern/util/handle.js"></script>
+<!--Big Number-->
+<script type="text/javascript" src="https://playentry.org/lib/entryjs/extern/util/bignumber.min.js"></script>
+<!--Webfont loader-->
+<script type="text/javascript" src="https://playentry.org/js/font_config.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/components-webfontloader/webfontloader.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/socket.io-client/socket.io.js"></script>
+<script type="text/javascript" src="https://playentry.org/lib/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="lib/entryjs/dist/entry.min.js"></script>
+<!--codingparty(3,4,5)-->
+<script type="text/javascript" src="js/ntry.min.js"></script>
+<script type="text/javascript" src="https://playentry.org/js/ntry/data/study_data.js"></script>
+<script type="text/javascript" src="https://playentry.org/js/ntry/data/ntry_data_maze.js"></script>
+<script type="text/javascript" src="https://playentry.org/js/ntry/data/study_maze_data.js"></script>
+<script type="text/javascript" src="https://playentry.org/js/ntry/data/cpartyJr_data.js"></script>
+<!--webpack resources-->
+<script type="text/javascript" src="https://playentry.org/builds/course.js"></script>
+<script type="text/javascript" src="builds/course_script.js"></script>
+
+</body>
+</html>
